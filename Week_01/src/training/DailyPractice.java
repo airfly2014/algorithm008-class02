@@ -206,18 +206,18 @@ public class DailyPractice {
    /* public String reverseOnlyLetters(String S) {
 
         StringBuilder builder = new StringBuilder(S);
-        Stack stack = new Stack();
+        Stack MinStack = new Stack();
 
          int length = builder.length();
          for(int i = 0; i < length; i++){
              if(isAlphabet(builder.charAt(i))){
-                 stack.push(builder.charAt(i));
+                 MinStack.push(builder.charAt(i));
              }
          }
 
         for(int i = 0; i < length; i++){
             if(isAlphabet(builder.charAt(i))){
-                builder.replace(i,i+1, String.valueOf(stack.pop()));
+                builder.replace(i,i+1, String.valueOf(MinStack.pop()));
             }
         }
 
