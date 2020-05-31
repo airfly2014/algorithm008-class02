@@ -23,17 +23,18 @@ public class NthUglyNumber {
         int[] base = {2, 3, 5};
         PriorityQueue<Long> queue = new PriorityQueue<>();
         HashSet<Long> hashSet = new HashSet<>();
-
         queue.add(1l);
-        for(int i = 1; i < n; i++){
-            long num = queue.poll();
-            for(long b : base){
-                if(!hashSet.contains(num * b)){
-                    hashSet.add(num * b);
-                    queue.add(num * b);
+        for(int i = 1;i < n;i++){
+            long current = queue.poll();
+            for(int b : base){
+                long temp = current * b;
+                if(!hashSet.contains(temp)){
+                    hashSet.add(temp);
+                    queue.add(temp);
                 }
             }
         }
+
         return Math.toIntExact(queue.poll());
     }
 
